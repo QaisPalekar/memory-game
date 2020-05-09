@@ -1,0 +1,12 @@
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 500px;
+    height: 400px;
+    gap: 15px;
+    margin: auto;
+}
+
+.tile {
+    background-color: black;
+}
