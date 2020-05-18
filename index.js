@@ -1,4 +1,14 @@
-const colors = ['red', 'pink', 'yellow', 'blue']
+const colors = [
+    './jake-peralta.jpeg', 
+    './amy.jpeg',
+    './charles.jpeg',
+    './terry.jpeg',
+    './holt.jpeg',
+    './rosa.jpeg',
+    './amy.jpeg',
+    './amy.jpeg',
+    './amy.jpeg'
+]
 
 function getRandomNumber(max) {
     return Math.floor(Math.random() * max);;
@@ -17,8 +27,9 @@ let points = 0;
 window.addEventListener("load", function(event) {
     const board = document.getElementsByClassName('board')[0];
     gameVals.forEach((_ , index) => {
-        const tile =  this.document.createElement('p');
+        const tile =  this.document.createElement('img');
         tile.className = 'tile';
+        tile.src = './default.jpeg';
         tile.dataset.index = index;
         board.appendChild(tile);
     });
@@ -29,15 +40,19 @@ window.addEventListener('click', event => {
     if(event.target.classList.contains('tile')) {
         if(!selectedValue) {
             selectedValue = target.dataset.index;
-            target.style.backgroundColor = gameVals[target.dataset.index];
+            target.src = gameVals[target.dataset.index];
         } else {
-            target.style.backgroundColor = gameVals[target.dataset.index];
+            target.src = gameVals[target.dataset.index];
             setTimeout(() => {
                 if(gameVals[target.dataset.index] === gameVals[selectedValue]) {
                     points += 1;
+                    document.getElementsByClassName('success-prompt')[0].style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementsByClassName('success-prompt')[0].style.display = 'none';
+                    }, 1500)
                 } else {
-                    target.style.backgroundColor = 'black';
-                    document.querySelector(`[data-index="${selectedValue}"]`).style.backgroundColor = 'black';
+                    target.src = './default.jpeg';
+                    document.querySelector(`[data-index="${selectedValue}"]`).src = './default.jpeg';
                 }
                 selectedValue = null;
             }, 1000)
