@@ -6,11 +6,24 @@
     <title>Memory Game</title>
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="container">
+        <div class="menu">
+            <h3 class="title">Memory Game</h3>
+            <div class="options">
+                <div onClick='startGame()'class='options_button'>Start Game</div>
+                <div class='options_button'>About</div>
+                <div class='options_button'>Github</div>
+                <div class='options_button'>Twitter</div>
+            </div>
+        </div>
         <img style='display: none;' class='success-prompt' src="https://media.giphy.com/media/80KYXCRVLo1ji/giphy-downsized.gif" alt="gif">
-        <div class="board">
+        <div class="game">
+            <div class="board">
+            </div>
+            <div class="steps"> Steps : 0 </div>
         </div>
     </div>
 </body>
